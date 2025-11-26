@@ -8,7 +8,7 @@ class ServicesSection extends React.Component {
 
         return (
             <section
-                id="product-services"
+                id="services"
                 className="py-16 md:py-24 bg-white"
                 style={{ backgroundColor: '#F7F4FF' }}
             >

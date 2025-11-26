@@ -1,32 +1,23 @@
-import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import About from './components/About';
 import Footer from './components/Footer';
-import GovtPartners from './components/govtPartners';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Products from './components/Products';
-import Services from './components/Services';
-import Testimonials from './components/Testimonials';
+import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
+import GovtInstitutionalPartners from './pages/Partners';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="min-h-screen flex flex-col">
-                <Header />
-                <main className="flex-grow">
-                    <Hero />
-                    <GovtPartners />
-                    <About />
-                    <Services />
-                    <Products />
-                    <Testimonials />
-                    {/* <ContactForm /> */}
-                </main>
-                <Footer />
-            </div>
-        );
-    }
+function App() {
+    return (
+        <Router>
+            <Header />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/partners" element={<GovtInstitutionalPartners />} />
+            </Routes>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withSectionData from '../hocs/withSectionData'; // আপনার HOC পাথ ঠিক করে দেবেন
+import withSectionData from '../hocs/withSectionData';
 
 class TestimonialsSection extends React.Component {
     render() {
@@ -38,7 +38,6 @@ class TestimonialsSection extends React.Component {
                                     </div>
                                 </div>
 
-                                {/* টেক্সট বডি */}
                                 <p className="text-gray-700 text-left flex-grow">
                                     {testimonial.text}
                                 </p>
@@ -51,5 +50,4 @@ class TestimonialsSection extends React.Component {
     }
 }
 
-// HOC ব্যবহার করে 'testimonials' ডেটা লোড করা হলো
 export default withSectionData('testimonials')(TestimonialsSection);

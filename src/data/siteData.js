@@ -1,13 +1,31 @@
-// central site data (you can later replace with fetch from API)
 import arVrRoboticsImage from '../assets/ar_vr_robotics.png';
-import bdFlag from '../assets/Bangladesh.png'; // আপনার ইমেজ পাথ ঠিক করে দেবেন
+import Ariful from '../assets/Ariful.png';
+import Article from '../assets/Article19.png';
+import Ayumu from '../assets/Ayumu.png';
+import Babu from '../assets/BABU.png';
+import bdFlag from '../assets/Bangladesh.png';
 import BArmy from '../assets/BArmy.png';
+import bdNavyLogo from '../assets/bd_navy.png';
+import BengleGroup from '../assets/Benglal_Group.png';
+import Bkash from '../assets/Bkash.png';
 import BMS from '../assets/BMS.png';
+import bsbkLogo from '../assets/bsbk.png'; // ধরে নিলাম BSBK এর লোগো এটি
 import CCA from '../assets/CCA.png';
+import Circle from '../assets/Circle.png';
+import CooperTech from '../assets/CooperTech.png';
 import customSolutionImage from '../assets/custom_solution.png';
+import Formula1 from '../assets/Formula1.png';
 import Freelancing from '../assets/Freelacing.png';
+import FuWang from '../assets/FU_Wang.png';
+import GrameenPhone from '../assets/GrameenPhone.png';
+import gtclLogo from '../assets/gtcl.png';
+import highwaysDeptLogo from '../assets/highways_dept.png';
+import HiTech from '../assets/HITECH.png';
+import Huntsman from '../assets/Huntsman.png';
 import ICT from '../assets/ICT.png';
+import ictDivisionLogo from '../assets/ict_division.png';
 import jpFlag from '../assets/Japan.png';
+import JRF from '../assets/JRF.png';
 import kentaKatoImage from '../assets/Kenta Kato.png';
 import KHOZ from '../assets/Khoj.png';
 import kinyiaIshiiImage from '../assets/Kinya Ishii.png';
@@ -15,14 +33,174 @@ import Logo from '../assets/logo.png';
 import MadeInBangla from '../assets/MadeInBangla.png';
 import malligaSubramaniumImage from '../assets/Malliga Subramanium.png';
 import Maritime from '../assets/Maritime.png';
+import Nippon from '../assets/Nippon.png';
+import Nirod from '../assets/Nirod.png';
+import OxyData from '../assets/Oxydata.png';
+import PremierLeasing from '../assets/Primier_Leasing.png';
 import Prostuti from '../assets/Prostuti.png';
 import Quiz from '../assets/Quiz.png';
+import RayDaud from '../assets/Ray_Daud.png';
+import Robi from '../assets/Robi.png';
+import Sahera from '../assets/Sahera.png';
+import Siemens from '../assets/Simens.png';
 import skillMigrationImage from '../assets/skill_migration.png';
 import sobjantaImage from '../assets/sobjanta.png';
 import TKG from '../assets/TKGERP.png';
 import UN from '../assets/UN.png';
+import UNDP from '../assets/UNDP.png';
 import usaFlag from '../assets/USA.png';
+import Zinat from '../assets/Zinat.png';
+import Zubayer from '../assets/Zubayer.png';
 
+const partnersPageData = {
+    hero: {
+        title: 'Our Partners & Clients',
+        subtitle:
+            'Trusted by leading government institutions, international organizations, and commercial enterprises worldwide'
+    }
+};
+
+// --- ১. Government & Institutional Partners ডেটা ---
+const govtInstitutionalPartners = [
+    {
+        id: 'ict',
+        title: 'ICT Division',
+        image: ictDivisionLogo
+    },
+    {
+        id: 'cca',
+        title: 'CCA',
+        image: CCA
+    },
+    {
+        id: 'bd-army',
+        title: 'Bangladesh Army',
+        image: BArmy
+    },
+    {
+        id: 'maritime-academy',
+        title: 'Maritime Academy',
+        image: Maritime
+    },
+    {
+        id: 'highways-dept',
+        title: 'Bangladesh Highways Department',
+        image: highwaysDeptLogo
+    },
+    {
+        id: 'bd-navy',
+        title: 'Bangladesh Navy',
+        image: bdNavyLogo
+    },
+    {
+        id: 'gtcl',
+        title: 'Gas Transmission Company Limited',
+        image: gtclLogo
+    },
+    {
+        id: 'bsbk',
+        title: 'BSBK',
+        image: bsbkLogo
+    }
+];
+
+// --- ২. International Partners ডেটা ---
+const internationalPartners = [
+    {
+        id: 'siemens',
+        title: 'SIEMENS',
+        image: Siemens
+    },
+    {
+        id: 'un',
+        title: 'United Nations',
+        image: UN
+    },
+    {
+        id: 'undp',
+        title: 'UNDP',
+        image: UNDP
+    },
+    {
+        id: 'hitech',
+        title: 'Bangladesh Hi-Tech Park Authority',
+        image: HiTech
+    },
+    {
+        id: 'oxydata',
+        title: 'OxyData',
+        image: OxyData
+    },
+    {
+        id: 'article19',
+        title: 'ARTICLE19',
+        image: Article
+    },
+    {
+        id: 'jrf',
+        title: 'JRF',
+        image: JRF
+    },
+    {
+        id: 'formula1',
+        title: 'Formula 1',
+        image: Formula1
+    },
+    {
+        id: 'coppertech',
+        title: 'Coppertech',
+        image: CooperTech
+    },
+    {
+        id: 'circle',
+        title: 'Circle',
+        image: Circle
+    }
+];
+
+// --- ৩. Commercial Partners ডেটা ---
+const commercialPartners = [
+    {
+        id: 'grameenphone',
+        title: 'Grameenphone',
+        image: GrameenPhone
+    },
+    {
+        id: 'robi',
+        title: 'Robi',
+        image: Robi
+    },
+    {
+        id: 'bkash',
+        title: 'bKash',
+        image: Bkash
+    },
+    {
+        id: 'bengal-group',
+        title: 'Bengal Group of Industries',
+        image: BengleGroup
+    },
+    {
+        id: 'huntsman',
+        title: 'HUNTSMAN',
+        image: Huntsman
+    },
+    {
+        id: 'premier-leasing',
+        title: 'Premier Leasing & Finance',
+        image: PremierLeasing
+    },
+    {
+        id: 'nippon-express',
+        title: 'Nippon Express',
+        image: Nippon
+    },
+    {
+        id: 'fu-wang',
+        title: 'Fu-Wang',
+        image: FuWang
+    }
+];
 const aboutSectionData = {
     title: 'About TechKnowGram',
     p1: 'TechKnowGram is a leading technology company based in Bangladesh, specializing in providing customized web and embedded solutions across various domains. With expertise in ERP, AI, IoT, ML, Data Analytics, Robotics, AR, VR Applications, Gaming, and Animation.',
@@ -38,6 +216,62 @@ const aboutSectionData = {
     buttons: [
         { label: 'Download Portfolio', type: 'primary' },
         { label: 'View Brochure', type: 'secondary' }
+    ]
+};
+const aboutTKGData = {
+    mainTitle: 'About TechKnow Gram',
+    tagline:
+        'Leading technology company with 25+ years of expertise in AI, IoT, and enterprise solutions',
+
+    // Who We Are সেকশন
+    whoWeAre: {
+        title: 'Who We Are',
+        paragraphs: [
+            'TechKnowGram is a leading technology company based in Bangladesh, specializing in providing customized web and embedded solutions across various domains, including ERP, AI, IoT, ML Data Analytics, Robotics, AR, VR Applications, Gaming, and Animation.',
+            'Renowned globally for our expertise in the USA, EU, and Japanese ICT markets, where we have been active for over 25 years with combined professional experience.',
+            'TechKnowGram Limited is proud to hold ISO 9001, ISO 14001, and ISO/IEC 27001 certifications and is committed to delivering innovative solutions to clients.'
+        ],
+        bulletPoints: [
+            'ISO 9001, ISO 14001, ISO/IEC 27001 Certified',
+            '25+ Years of Combined Experience',
+            'Global Presence Across 3 Continents.'
+        ]
+    },
+
+    stats: [
+        { number: '25+', label: 'Years of Experience' },
+        { number: '100+', label: 'Global Clients' },
+        { number: '120+', label: 'Projects Completed' },
+        { number: '55+', label: 'Team Members' }
+    ]
+};
+
+const leadingBoardData = {
+    title: 'TechKnowGram Leading Board',
+    members: [
+        {
+            name: 'AKM Ahmedul Islam BABU',
+            designation: 'Founder & CEO',
+            bio: 'AKM Ahmedul Islam BABU is the Founder, Managing Director, and CEO of TechKnowGram Ltd and Sobjanta Al, boasting over 28 years of experience in BPO, outsourcing, and the software industry across the USA and Japanese markets. As an ICT pioneer, he has held prominent roles at multinational companies such as NIIT, Metrocomia South Asia, BJIT, SEBPO, Divine IT, and AtomAP. Since 1997, he has been actively involved with the Bangladesh Association of Software and Information Services (BASIS), where he served as Director and currently leads the BASIS Japan Desk.',
+            isFeatured: true,
+            image: Babu
+        },
+        { name: 'Sahera Islam', designation: 'Chairman', isFeatured: false, image: Sahera },
+        {
+            name: 'AKM Ahmedul Islam',
+            designation: 'Managing Director & CEO',
+            isFeatured: false,
+            image: Babu
+        },
+        { name: 'Zinat Humaira Khanam', designation: 'Director', isFeatured: false, image: Zinat },
+        { name: 'Ayumu Takahashi', designation: 'Director', isFeatured: false, image: Ayumu },
+        { name: 'Md. Ariful Alam', designation: 'Director', isFeatured: false, image: Ariful },
+        { name: 'Nirod Barua', designation: 'Director', isFeatured: false, image: Nirod }
+    ],
+    advisors: [
+        { name: 'Dr. Mahmud Zubayer', designation: 'Advisor', image: Zubayer },
+        { name: 'Ray Daud', designation: 'Advisor', image: RayDaud },
+        { name: 'Jean-Marc Pelletier', designation: 'Advisor' }
     ]
 };
 const siteData = {
@@ -171,7 +405,8 @@ const siteData = {
             text: 'Ahmedul delivered our work quickly and provided designs that attracted both our clients and partners, while also eliminating the need for a business analyst. They offer a complete solution for all client requirements, making them a valuable asset for any customer.'
         }
     ],
-    about: aboutSectionData,
+    aboutSection: aboutSectionData,
+
     productServices: [
         {
             id: 'ps1',
@@ -209,7 +444,7 @@ const siteData = {
     companyLocations: [
         {
             id: 'loc1',
-            flag: bdFlag, // পতাকার ইমেজ
+            flag: bdFlag,
             name: 'TechKnowGram Ltd.',
             address:
                 'Suite 6B, House 8A/10, Doreen Tower, Road 13, Dhanmondi, Dhaka 1209, BANGLADESH',
@@ -219,7 +454,7 @@ const siteData = {
         {
             id: 'loc2',
             flag: jpFlag,
-            name: '合同会社', // জাপানিজ নাম
+            name: '合同会社',
             address: 'Oyamadaji, Setagaya-ku, Tokyo 1-10-4, JAPAN',
             phone: '+81 (0)3 1234 5678',
             email: 'japan@techknowgram.com'
@@ -232,7 +467,13 @@ const siteData = {
             phone: '+1 (332) 252 8369',
             email: 'usa@techknowgram.com'
         }
-    ]
+    ],
+    about: aboutTKGData,
+    leadingboardData: leadingBoardData,
+    partnerPageData: partnersPageData,
+    govtInstitutionalPartner: govtInstitutionalPartners,
+    internationalPartner: internationalPartners,
+    commercialPartner: commercialPartners
 };
 
 siteData.footerData = {

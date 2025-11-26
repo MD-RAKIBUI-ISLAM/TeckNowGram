@@ -24,7 +24,7 @@ class About extends React.Component {
 
         return (
             <section
-                id="about"
+                id="About"
                 className="py-16 md:py-24 bg-white flex items-center justify-center"
             >
                 <div className="container mx-auto px-6">
@@ -77,4 +77,4 @@ class About extends React.Component {
     }
 }
 
-export default withSectionData('about')(About);
+export default withSectionData('aboutSection')(About);
