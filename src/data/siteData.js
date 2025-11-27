@@ -481,4 +481,50 @@ siteData.footerData = {
     companyLocations: siteData.companyLocations
 };
 
+siteData.contactInfoData = {
+    header: {
+        title: 'Get in Touch',
+        subtitle:
+            "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+    },
+    // companyLocations থেকে ফোন নম্বরগুলি নেওয়া হচ্ছে
+    phone: {
+        title: 'Phone',
+        numbers: [
+            { country: 'Bangladesh', number: siteData.companyLocations[0].phone },
+            { country: 'Japan', number: siteData.companyLocations[1].phone },
+            { country: 'USA', number: siteData.companyLocations[2].phone }
+        ]
+    },
+    // companyLocations থেকে ইমেলগুলি নেওয়া হচ্ছে
+    email: {
+        title: 'Email',
+        addresses: [
+            siteData.companyLocations[0].email,
+            siteData.companyLocations[1].email,
+            siteData.companyLocations[2].email
+        ]
+    },
+    hours: {
+        title: 'Business Hours',
+        schedule: [
+            'Monday-Friday: 9:00 AM - 6:00 PM',
+            'Saturday: 10:00 AM - 4:00 PM',
+            'Sunday: Closed'
+        ]
+    }
+};
+
+// Our Offices সেকশনের জন্য companyLocations ব্যবহার করা হচ্ছে।
+// এটি ContactForm.js এবং Footer উভয়ের জন্যই ডেটা সরবরাহ করবে।
+siteData.officeData = {
+    offices: siteData.companyLocations
+};
+
+// ... (Footer ডেটা আগে থেকেই আছে)
+siteData.footerData = {
+    company: siteData.company,
+    companyLocations: siteData.companyLocations
+};
+
 export default siteData;

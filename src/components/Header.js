@@ -1,5 +1,3 @@
-// src/components/Header.js
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,48 +16,42 @@ class Header extends React.Component {
     };
 
     renderMenu() {
-        return ['About', 'Partners', 'Services', 'Products', 'Testimonials', 'Contact'].map(
-            (item) => {
-                const isPageLink = item === 'About';
-                const isPartnerLink = item === 'Partners';
+        const pageLinks = ['Home', 'About', 'Partners', 'Contact'];
+        const menuItems = [
+            'Home',
+            'About',
+            'Partners',
+            'Services',
+            'Products',
+            'Testimonials',
+            'Contact'
+        ];
 
-                if (isPageLink) {
-                    return (
-                        <Link
-                            key={item}
-                            to={`/${item.toLowerCase()}`}
-                            onClick={this.toggleMenu}
-                            className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
-                        >
-                            {item}
-                        </Link>
-                    );
-                }
-                if (isPartnerLink) {
-                    return (
-                        <Link
-                            key={item}
-                            to={`/${item.toLowerCase()}`}
-                            onClick={this.toggleMenu}
-                            className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
-                        >
-                            {item}
-                        </Link>
-                    );
-                }
+        return menuItems.map((item) => {
+            const isRouterLink = pageLinks.includes(item);
+            const Component = isRouterLink ? Link : 'a';
 
-                return (
-                    <a
-                        key={item}
-                        href={`#${item.toLowerCase()}`}
-                        onClick={this.toggleMenu}
-                        className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
-                    >
-                        {item}
-                    </a>
-                );
+            let destination;
+
+            if (item === 'Home') {
+                destination = '/';
+            } else if (isRouterLink) {
+                destination = `/${item.toLowerCase()}`;
+            } else {
+                destination = `#${item.toLowerCase()}`;
             }
-        );
+
+            return (
+                <Component
+                    key={item}
+                    {...(isRouterLink ? { to: destination } : { href: destination })}
+                    onClick={this.toggleMenu}
+                    className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
+                >
+                    {item}
+                </Component>
+            );
+        });
     }
 
     render() {
