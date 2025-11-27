@@ -9,7 +9,7 @@ import bdNavyLogo from '../assets/bd_navy.png';
 import BengleGroup from '../assets/Benglal_Group.png';
 import Bkash from '../assets/Bkash.png';
 import BMS from '../assets/BMS.png';
-import bsbkLogo from '../assets/bsbk.png'; // ধরে নিলাম BSBK এর লোগো এটি
+import bsbkLogo from '../assets/bsbk.png';
 import CCA from '../assets/CCA.png';
 import Circle from '../assets/Circle.png';
 import CooperTech from '../assets/CooperTech.png';
@@ -60,7 +60,6 @@ const partnersPageData = {
     }
 };
 
-// --- ১. Government & Institutional Partners ডেটা ---
 const govtInstitutionalPartners = [
     {
         id: 'ict',
@@ -104,7 +103,6 @@ const govtInstitutionalPartners = [
     }
 ];
 
-// --- ২. International Partners ডেটা ---
 const internationalPartners = [
     {
         id: 'siemens',
@@ -158,7 +156,6 @@ const internationalPartners = [
     }
 ];
 
-// --- ৩. Commercial Partners ডেটা ---
 const commercialPartners = [
     {
         id: 'grameenphone',
@@ -487,7 +484,6 @@ siteData.contactInfoData = {
         subtitle:
             "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
     },
-    // companyLocations থেকে ফোন নম্বরগুলি নেওয়া হচ্ছে
     phone: {
         title: 'Phone',
         numbers: [
@@ -496,7 +492,7 @@ siteData.contactInfoData = {
             { country: 'USA', number: siteData.companyLocations[2].phone }
         ]
     },
-    // companyLocations থেকে ইমেলগুলি নেওয়া হচ্ছে
+
     email: {
         title: 'Email',
         addresses: [
@@ -515,13 +511,10 @@ siteData.contactInfoData = {
     }
 };
 
-// Our Offices সেকশনের জন্য companyLocations ব্যবহার করা হচ্ছে।
-// এটি ContactForm.js এবং Footer উভয়ের জন্যই ডেটা সরবরাহ করবে।
 siteData.officeData = {
     offices: siteData.companyLocations
 };
 
-// ... (Footer ডেটা আগে থেকেই আছে)
 siteData.footerData = {
     company: siteData.company,
     companyLocations: siteData.companyLocations

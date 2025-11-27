@@ -17,6 +17,7 @@ class Header extends React.Component {
 
     renderMenu() {
         const pageLinks = ['Home', 'About', 'Partners', 'Contact'];
+
         const menuItems = [
             'Home',
             'About',
@@ -28,23 +29,22 @@ class Header extends React.Component {
         ];
 
         return menuItems.map((item) => {
-            const isRouterLink = pageLinks.includes(item);
-            const Component = isRouterLink ? Link : 'a';
+            const Component = Link;
 
             let destination;
 
             if (item === 'Home') {
                 destination = '/';
-            } else if (isRouterLink) {
+            } else if (pageLinks.includes(item)) {
                 destination = `/${item.toLowerCase()}`;
             } else {
-                destination = `#${item.toLowerCase()}`;
+                destination = `/#${item.toLowerCase()}`;
             }
 
             return (
                 <Component
                     key={item}
-                    {...(isRouterLink ? { to: destination } : { href: destination })}
+                    to={destination}
                     onClick={this.toggleMenu}
                     className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
                 >
