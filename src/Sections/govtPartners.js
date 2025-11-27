@@ -13,7 +13,11 @@ class govtPartners extends React.Component {
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                         {Service.map((s) => (
-                            <div key={s.id} className="p-5 bg-white rounded shadow">
+                            <div
+                                key={s.id}
+                                className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center text-center 
+                                           border border-gray-200 hover:border-blue-500 transition duration-300"
+                            >
                                 <img
                                     className="w-full h-20 object-contain mb-4"
                                     src={s.image}
