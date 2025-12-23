@@ -1,88 +1,97 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 import LogoImage from '../assets/logo.png';
-import withSectionData from '../hocs/withSectionData';
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { open: false };
-    }
+const MENU_ITEMS = [
+    { label: 'Home', to: '/' },
+    { label: 'About', to: '/about' },
+    { label: 'Partners', to: '/partners' },
+    { label: 'Services', to: '/#services' },
+    { label: 'Products', to: '/#products' },
+    { label: 'Testimonials', to: '/#testimonials' },
+    { label: 'Contact', to: '/contact' }
+];
 
-    toggleMenu = () => {
-        const { open } = this.state;
-        this.setState({ open: !open });
-    };
+export default function Header() {
+    const [open, setOpen] = useState(false);
 
-    renderMenu() {
-        const pageLinks = ['Home', 'About', 'Partners', 'Contact'];
+    return (
+        <header className="fixed top-0 w-full z-50 bg-white shadow-sm">
+            <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="h-18 flex items-center justify-between">
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center gap-2 no-underline">
+                        <img src={LogoImage} alt="Logo" className="h-9 sm:h-10" />
+                    </Link>
 
-        const menuItems = [
-            'Home',
-            'About',
-            'Partners',
-            'Services',
-            'Products',
-            'Testimonials',
-            'Contact'
-        ];
+                    {/* Desktop Menu */}
+                    <nav className="hidden md:flex items-center gap-8">
+                        {MENU_ITEMS.map((item) => (
+                            <NavLink
+                                key={item.label}
+                                to={item.to}
+                                className={({ isActive }) =>
+                                    `
+                                    relative
+                                    text-base lg:text-lg
+                                    font-medium
+                                    text-gray-800
+                                    no-underline
+                                    transition
+                                    hover:text-sky-600
+                                    ${
+                                        isActive
+                                            ? 'after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-sky-600'
+                                            : ''
+                                    }
+                                `
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
+                    </nav>
 
-        return menuItems.map((item) => {
-            const Component = Link;
-
-            let destination;
-
-            if (item === 'Home') {
-                destination = '/';
-            } else if (pageLinks.includes(item)) {
-                destination = `/${item.toLowerCase()}`;
-            } else {
-                destination = `/#${item.toLowerCase()}`;
-            }
-
-            return (
-                <Component
-                    key={item}
-                    to={destination}
-                    onClick={this.toggleMenu}
-                    className="px-4 py-2 hover:text-sky-600 font-medium block md:inline no-underline text-black"
-                >
-                    {item}
-                </Component>
-            );
-        });
-    }
-
-    render() {
-        const { open } = this.state;
-
-        return (
-            <header className="bg-white shadow fixed w-full top-0 z-50 text-2xl">
-                <div className="max-w-[1300px] mx-auto px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <Link to="/" className="no-underline">
-                            <img src={LogoImage} alt="logo" className="h-10" />
-                        </Link>
-                    </div>
-
-                    <nav className="hidden md:flex items-center gap-4">{this.renderMenu()}</nav>
-
+                    {/* Mobile Toggle */}
                     <button
                         type="button"
-                        className="md:hidden text-2xl rounded"
-                        onClick={this.toggleMenu}
+                        onClick={() => setOpen((p) => !p)}
+                        className="md:hidden text-3xl"
+                        aria-label="Toggle menu"
                     >
                         ☰
                     </button>
                 </div>
+            </div>
 
-                {open && (
-                    <div className="md:hidden bg-white px-6 pb-4 shadow">{this.renderMenu()}</div>
-                )}
-            </header>
-        );
-    }
+            {/* Mobile Menu */}
+            {open && (
+                <div className="md:hidden bg-white shadow-md">
+                    <nav className="flex flex-col px-4 py-4 gap-3">
+                        {MENU_ITEMS.map((item) => (
+                            <NavLink
+                                key={item.label}
+                                to={item.to}
+                                onClick={() => setOpen(false)}
+                                className={({ isActive }) =>
+                                    `
+                                    text-lg
+                                    font-medium
+                                    text-gray-800
+                                    no-underline
+                                    transition
+                                    hover:text-sky-600
+                                    ${isActive ? 'text-sky-600' : ''}
+                                `
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
+                    </nav>
+                </div>
+            )}
+        </header>
+    );
 }
-
-export default withSectionData('company')(Header);
